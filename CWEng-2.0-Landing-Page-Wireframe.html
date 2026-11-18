@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWEng 2.0 Landing Page – Wireframe v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#001527;--navy-700:#003767;
+  --orange:#ee7623;--orange-text:#c85f13;
+  --ink-2:#33424f;--ink-3:#5a6a78;
+  --line:#dfe3e7;--band:#f1f3f5;--canvas:#e9ecef;
+  --head:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --body:"Dark Mode","Dark Mode Regular",Barlow,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);font-family:var(--body);color:var(--navy-900);-webkit-font-smoothing:antialiased}
+a{color:var(--navy-700);text-decoration:none}
+a:hover{color:var(--orange-text)}
+.page{max-width:1280px;margin:0 auto;background:#fff}
+.in{padding:0 40px}
+h1,h2,h3,p{margin:0}
+
+/* Type */
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-text);margin-bottom:14px}
+.h1{font-family:var(--head);font-weight:700;font-size:66px;line-height:.98;letter-spacing:-.01em;text-transform:uppercase;color:#fff}
+.h2{font-family:var(--head);font-weight:700;font-size:46px;line-height:1.02;text-transform:uppercase;color:var(--navy-900)}
+.hl{color:var(--orange)}
+.lead{font-size:19px;line-height:1.58;color:var(--ink-2)}
+.small{font-size:16px;line-height:1.6;color:var(--ink-3)}
+
+/* Buttons */
+.btn{display:inline-block;font-family:var(--head);font-weight:700;font-size:18px;letter-spacing:.09em;text-transform:uppercase;border-radius:6px;padding:16px 32px;background:var(--orange);color:#fff}
+.btn:hover{color:#fff;background:#d9661a}
+.btn.navy{background:var(--navy-700)}
+.btn.navy:hover{background:var(--navy-900)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.5);padding:15px 28px;font-weight:600}
+.tlink{display:inline-block;font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-text);border-bottom:2px solid var(--orange);padding-bottom:3px}
+
+/* Global header (placeholder) */
+.util{background:var(--navy-700);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;padding:8px 40px}
+.nav{background:var(--navy-900);color:#fff;display:flex;align-items:center;gap:32px;padding:16px 40px;flex-wrap:wrap}
+.logo{border:1px solid rgba(255,255,255,.4);font-family:var(--mono);font-size:11px;padding:10px 16px}
+.nav span{font-family:var(--head);font-weight:700;font-size:14px;text-transform:uppercase}
+.nav .join{margin-left:auto;background:var(--orange);padding:10px 16px;border-radius:4px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--navy-900);color:#fff;padding:20px 40px 80px}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 14px);pointer-events:none}
+.hero::after{content:"";position:absolute;width:520px;height:520px;right:-120px;top:-140px;background:radial-gradient(circle,rgba(238,118,35,.35),rgba(238,118,35,0) 65%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.crumbs{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.65);margin-bottom:48px}
+.crumbs b{color:#fff;font-weight:500}
+.badge{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(238,118,35,.12);border:1px solid rgba(238,118,35,.55);padding:7px 14px;margin-bottom:28px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero .sub{font-family:var(--head);font-weight:700;font-size:24px;line-height:1.2;text-transform:uppercase;color:var(--orange);margin:24px 0 36px;max-width:28ch}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:40px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.hero-meta i{font-style:normal;color:rgba(255,255,255,.3)}
+
+/* Placeholders */
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;line-height:1.6;color:var(--ink-3);padding:20px;border:1px solid var(--line);background:repeating-linear-gradient(135deg,#f6f7f9 0 2px,#fff 2px 12px)}
+.ph.dark{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.15);background:repeating-linear-gradient(135deg,#0b2236 0 2px,#071a2b 2px 12px)}
+.ph small{display:block;text-transform:none;letter-spacing:.02em;font-size:12px;opacity:.85}
+
+/* Sections */
+.sec{padding:80px 40px;border-top:1px solid var(--line);position:relative}
+.sec.band{background:var(--band);border-top:0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+
+/* Features (top-rule list) */
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 28px;margin-top:44px}
+.feat article{border-top:2px solid var(--navy-700);padding-top:14px}
+.feat h3{font-family:var(--head);font-weight:700;font-size:20px;line-height:1.1;text-transform:uppercase;color:var(--navy-700);margin-bottom:10px}
+.feat p{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.num{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-bottom:8px;display:block}
+
+/* Audience chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-700);border:1.5px solid var(--navy-700);padding:9px 14px}
+.chip.add{border-style:dashed;border-color:var(--orange);color:var(--orange-text)}
+
+/* Steps (orange-top cards) */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
+.card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--orange);padding:20px 24px 28px}
+.card h3{font-family:var(--head);font-weight:700;font-size:22px;line-height:1.08;text-transform:uppercase;color:var(--navy-700);padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.card p{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px}
+.flow span{font-family:var(--head);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--navy-700);color:var(--navy-700);padding:9px 14px}
+.flow em{font-style:normal;color:var(--orange);font-size:18px}
+
+/* Resources */
+.res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.res a{display:block;border:1px solid var(--line);border-top:3px solid var(--orange);padding:20px 22px 24px;background:#fff;min-height:170px}
+.res h3{font-family:var(--head);font-weight:700;font-size:20px;text-transform:uppercase;color:var(--navy-700);margin-bottom:8px}
+.res p{font-size:15px;line-height:1.5;color:var(--ink-2)}
+.res .go{display:block;margin-top:16px;font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-text)}
+.related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+
+/* Final CTA */
+.cta{position:relative;overflow:hidden;background:var(--navy-900);color:#fff;padding:88px 40px;text-align:center}
+.cta::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 14px)}
+.cta::after{content:"";position:absolute;width:520px;height:520px;left:-160px;bottom:-260px;background:radial-gradient(circle,rgba(238,118,35,.32),rgba(238,118,35,0) 65%)}
+.cta>*{position:relative;z-index:1}
+.cta .h2{color:#fff;margin-bottom:32px}
+.cta .eyebrow{color:var(--orange)}
+
+/* Footer placeholder */
+.foot{background:var(--navy-900);border-top:3px solid var(--orange);color:rgba(255,255,255,.7);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:56px 40px;text-align:center}
+
+/* Annotations */
+.toolbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;padding:10px 24px}
+.toolbar .t{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.toggle{font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:var(--navy-700);color:#fff;border:0;border-radius:6px;padding:12px 18px;min-height:44px;cursor:pointer}
+.ann{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:18px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--navy-700);color:#fff;padding:5px 10px}
+.tag b{color:#ffb27a;font-weight:500;margin-right:6px}
+.spec{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);border:1px solid var(--line);background:#fff;padding:4px 8px}
+.hero .spec,.cta .spec{background:transparent;color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.25)}
+.el{display:block;margin-bottom:8px}
+.el .spec{display:inline-block}
+.warn{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:#8a3b00;background:#fff3ea;border-left:3px solid var(--orange);padding:5px 9px;margin-top:10px}
+.hero .warn,.cta .warn{color:#ffd7ba;background:rgba(238,118,35,.15)}
+.mark{background:#fff3ea}
+.rec{outline:2px dashed var(--orange);outline-offset:-12px}
+.rec-badge{position:absolute;top:22px;right:40px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--orange);color:var(--navy-900);padding:5px 10px}
+/* Internal spec panel (not page content) */
+.meta{background:var(--band);padding:64px 40px 80px;border-top:1px solid var(--line)}
+.meta .h3{font-family:var(--head);font-weight:700;font-size:30px;text-transform:uppercase;color:var(--navy-900);margin:6px 0 24px}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.field{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy-700);padding:18px 20px}
+.field.wide{grid-column:1/-1}
+.field .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.field .v{font-size:16px;line-height:1.55;color:var(--navy-900)}
+.field code{font-family:var(--mono);font-size:14px;background:var(--band);padding:2px 6px}
+.field ul{margin:0;padding-left:18px;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.field li{margin-bottom:6px}
+.field .n{font-size:14px;color:var(--ink-3);margin-top:8px}
+.hide-ann .ann,.hide-ann .el,.hide-ann .warn,.hide-ann .rec-badge,.hide-ann .meta{display:none!important}
+.hide-ann .rec{outline:none}
+.hide-ann .mark{background:none}
+
+@media (max-width:960px){
+  .hero-grid,.two{grid-template-columns:1fr}
+  .feat,.steps,.related{grid-template-columns:1fr}
+  .res{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .h1{font-size:46px}.h2{font-size:34px}
+  .in,.sec,.hero,.cta,.util,.nav,.foot,.meta{padding-left:20px;padding-right:20px}
+}
+@media (max-width:560px){.res{grid-template-columns:1fr}.btn{display:block;text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="t">CWEng 2.0 · Landing page wireframe v2 · /certified-welding-engineer</span>
+  <button class="toggle" type="button" id="toggle" aria-pressed="true">Hide annotations</button>
+</div>
+
+<main class="page" id="page">
+
+  <!-- 01 GLOBAL HEADER (existing component) -->
+  <header aria-label="Global header">
+    <div class="util"><span>About AWS · Magazines &amp; Media · Businesses · Educators</span><span>Contact Us · Log In</span></div>
+    <div class="nav">
+      <span class="logo">AWS LOGO</span>
+      <span>Certification &amp; Education</span><span>Membership</span><span>Community &amp; Events</span><span>Career Resources</span><span>Standards &amp; Publications</span>
+      <span class="join">Join AWS</span>
+    </div>
+  </header>
+
+  <!-- 02 HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="crumbs">Home / Certification / <b>Certified Welding Engineer (CWEng)</b></div>
+    <div class="ann"><span class="tag"><b>01</b>Hero · above the fold</span><span class="spec">Breadcrumb recommended</span><span class="spec">Answers: What’s changing with the CWEng, and what does it mean for you?</span></div>
+    <div class="hero-grid">
+      <div>
+        <span class="badge">Redesigned Program · AWS B5.16:2025 · ISO/IEC 17024</span>
+        <span class="el"><span class="spec">H1 · SEO page title · primary keyword · 34 chars</span></span>
+        <h1 class="h1" id="h1">Certified Welding Engineer <span class="hl">(CWEng)</span></h1>
+        <span class="el" style="margin-top:20px"><span class="spec">Subhead · supports H1</span></span>
+        <p class="sub" style="margin-top:0">Designed for a New Generation of Welding Engineering Professionals</p>
+        <span class="el"><span class="spec">Primary CTA · above the fold</span></span>
+        <a class="btn" href="#path">View Certification Requirements</a>
+        <div class="hero-meta"><span>Two qualification levels</span><i>|</i><span>WET &amp; WE</span><i>|</i><span>Defined prerequisite</span><i>|</i><span>Exams also in Chinese</span></div>
+        <span class="el" style="margin-top:12px"><span class="spec">Proof strip: facts from the copy deck / brief · optional</span></span>
+      </div>
+      <div>
+        <span class="el"><span class="spec">Hero image or video</span></span>
+        <div class="ph dark" style="height:380px">Hero photography · 4:3<small>Welding engineer reviewing a weld or WPS/PQR. Dark, high contrast, orange arc light.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 INTRO -->
+  <section class="sec" aria-labelledby="intro-h" style="border-top:0">
+    <div class="ann"><span class="tag"><b>02</b>Introduction</span><span class="spec">Do not use: generic product description without context</span></div>
+    <div class="two">
+      <div>
+        <p class="eyebrow">CWEng 2.0 · What’s Changing</p>
+        <span class="el"><span class="spec">H2 · section heading</span></span>
+        <h2 class="h2" id="intro-h">Updated Engineering Certification Aligns with Both <span class="hl">AWS and ISO Standards</span></h2>
+      </div>
+      <div>
+        <span class="el"><span class="spec">Intro paragraph · 50–100 words</span></span>
+        <p class="lead">The Certified Welding Engineer (CWEng) program has been redesigned to reflect the changing demands of welding engineering. Explore the updated requirements, exam process, and study resources to understand what’s changed and how to prepare for certification.</p>
+        <span class="warn">36 words: needs 14+ more to reach the 50-word minimum</span>
+        <div style="margin-top:28px"><a class="tlink" href="#features">See what’s new →</a></div>
+        <span class="el" style="margin-top:8px"><span class="spec">Secondary text link · optional, copy not in deck</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 KEY FEATURES -->
+  <section class="sec" id="features" aria-labelledby="feat-h">
+    <div class="ann"><span class="tag"><b>03</b>Key features / highlights</span><span class="spec">6 items · top-rule list</span></div>
+    <p class="eyebrow">Program Highlights</p>
+    <span class="el"><span class="spec">H2 · section heading</span></span>
+    <h2 class="h2" id="feat-h">Key Features of the <span class="hl">Redesigned CWEng</span> Program</h2>
+    <div class="feat">
+      <article><span class="num">01</span><h3>Aligned with AWS B5.16:2025</h3><p>The qualification framework aligns with AWS’s specification for welding engineering personnel.</p></article>
+      <article><span class="num">02</span><h3>Aligned with ISO/IEC 17024</h3><p>The certification process aligns with international requirements for personnel certification.</p></article>
+      <article><span class="num">03</span><h3>Two Qualification Levels</h3><p>The program includes Welding Engineering Technologist (WET) and Welding Engineer (WE) levels.</p></article>
+      <article><span class="num">04</span><h3>Updated Exam Structure</h3><p>A revised exam structure reflects the redesigned qualification framework.</p></article>
+      <article><span class="num">05</span><h3>Defined Prerequisite</h3><p>Candidates must meet the prerequisite requirements before taking the CWEng exams.</p></article>
+      <article><span class="num">06</span><h3>Study and Preparation Resources</h3><p>Explore available study options to prepare for the exams and understand what to expect.</p></article>
+    </div>
+  </section>
+
+  <!-- 05 WHO -->
+  <section class="sec band" aria-labelledby="who-h">
+    <div class="ann"><span class="tag"><b>04</b>Who it’s for</span><span class="spec">Audience qualification</span></div>
+    <div class="two">
+      <div>
+        <p class="eyebrow">Audience</p>
+        <span class="el"><span class="spec">H2 · section heading</span></span>
+        <h2 class="h2" id="who-h">Who Is the <span class="hl">CWEng Program</span> For?</h2>
+        <span class="el" style="margin-top:20px"><span class="spec">Body paragraph</span></span>
+        <p class="lead">The Certified Welding Engineer (CWEng) is designed for engineers working with welding design, materials, processes, and performance, including: metallurgical engineers, mechanical and materials engineers working with welded systems, and Welding Engineering Technologists (WETs) <span class="mark">and</span> who are considering their next qualification level.</p>
+        <span class="warn">Typo: remove “and” before “who are considering”</span>
+        <span class="el" style="margin-top:24px"><span class="spec">Audience chips · optional scannable version</span></span>
+        <div class="chips" style="margin-top:0">
+          <span class="chip">Metallurgical Engineers</span>
+          <span class="chip">Mechanical Engineers</span>
+          <span class="chip">Materials Engineers</span>
+          <span class="chip">Welding Engineering Technologists</span>
+          <span class="chip add">+ Welding Engineers (in brief)</span>
+        </div>
+      </div>
+      <div>
+        <span class="el"><span class="spec">Image · optional</span></span>
+        <div class="ph" style="height:400px">Engineering photography<small>Engineers reviewing a welded component on the fabrication floor</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 PATH (RECOMMENDED) -->
+  <section class="sec rec" id="path" aria-labelledby="path-h">
+    <span class="rec-badge">Recommended · copy not in deck</span>
+    <div class="ann"><span class="tag"><b>05</b>Path to certification</span><span class="spec">From brief CTA · needs Certification approval</span></div>
+    <p class="eyebrow">How It Works</p>
+    <span class="el"><span class="spec">H2 · section heading [TBD]</span></span>
+    <h2 class="h2" id="path-h">[How to Earn <span class="hl">the CWEng</span>]</h2>
+    <div class="flow"><span>Prerequisite</span><em>→</em><span>Requirements</span><em>→</em><span>CWEng Exams</span><em>→</em><span>Certified</span></div>
+    <div class="steps">
+      <div class="card"><span class="num">01</span><h3>Meet the Prerequisite</h3><p>Pass the AWS Welding Applied Sciences exam or the NCEES Fundamentals of Engineering (FE) exam.</p><span class="warn">Confirm exam name: “Welding Applied” vs. “Welding Applied Sciences”</span></div>
+      <div class="card"><span class="num">02</span><h3>Meet the Qualification Requirements</h3><p>Meet the requirements for your level: Welding Engineering Technologist (WET) or Welding Engineer (WE).</p><span class="warn">Link: Candidate Handbook [URL TBD]</span></div>
+      <div class="card"><span class="num">03</span><h3>Take the CWEng Exams</h3><p>Apply for and take the CWEng exams for your qualification level.</p><span class="warn">Note: exams also available in Chinese (brief)</span></div>
+    </div>
+  </section>
+
+  <!-- 07 SUPPORTING RESOURCES -->
+  <section class="sec band" aria-labelledby="res-h">
+    <div class="ann"><span class="tag"><b>06</b>Supporting resources</span><span class="spec">Optional</span><span class="spec">Can add related blogs / articles</span></div>
+    <div class="two" style="align-items:end">
+      <div>
+        <p class="eyebrow">Exam Preparation</p>
+        <span class="el"><span class="spec">H2 · section heading</span></span>
+        <h2 class="h2" id="res-h">Prepare for the <span class="hl">CWEng Exams</span></h2>
+      </div>
+      <div>
+        <span class="el"><span class="spec">Intro line</span></span>
+        <p class="small">Explore the resources available to help prepare for CWEng certification.</p>
+      </div>
+    </div>
+    <div class="res">
+      <a href="#"><span class="num">01</span><h3>Exam Requirements</h3><p>Eligibility and exam structure.</p><span class="go">Learn more →</span><span class="el" style="margin-top:8px"><span class="spec">URL TBD</span></span></a>
+      <a href="#"><span class="num">02</span><h3>Study Resources</h3><p>Preparation materials and study options.</p><span class="go">Learn more →</span><span class="el" style="margin-top:8px"><span class="spec">URL TBD</span></span></a>
+      <a href="#"><span class="num">03</span><h3>Qualification Levels</h3><p>WET and WE requirements.</p><span class="go">Learn more →</span><span class="el" style="margin-top:8px"><span class="spec">URL TBD</span></span></a>
+      <a href="#"><span class="num">04</span><h3>Application Information</h3><p>Steps to get started.</p><span class="go">Learn more →</span><span class="el" style="margin-top:8px"><span class="spec">URL TBD</span></span></a>
+    </div>
+    <span class="el" style="margin-top:32px"><span class="spec">Optional row · related blogs / articles from CMS</span></span>
+    <div class="related">
+      <div class="ph" style="height:150px">Related article</div>
+      <div class="ph" style="height:150px">Related article</div>
+      <div class="ph" style="height:150px">Related article</div>
+    </div>
+  </section>
+
+  <!-- 08 FINAL CTA -->
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="ann"><span class="tag"><b>07</b>Final CTA</span><span class="spec">Copy deck note: “Purchase”</span></div>
+    <p class="eyebrow">Next Step</p>
+    <span class="el"><span class="spec">Optional heading · not in deck</span></span>
+    <h2 class="h2" id="cta-h">[Ready to <span class="hl">Get Started?</span>]</h2>
+    <a class="btn" href="#path">View Certification Requirements</a>
+    <div><span class="warn">Confirm destination: requirements page vs. application / purchase flow</span></div>
+  </section>
+
+  <!-- 09 FOOTER -->
+  <footer class="foot">Global footer · existing aws.org component</footer>
+
+  <!-- INTERNAL: PAGE SPEC & SEO (not page content) -->
+  <section class="meta" aria-labelledby="meta-h">
+    <div class="ann"><span class="tag"><b>Internal</b>Not page content</span><span class="spec">Page spec, SEO &amp; brief notes for the build team</span></div>
+    <h2 class="h3" id="meta-h">Page Metadata</h2>
+    <div class="meta-grid">
+      <div class="field"><div class="k">Page URL</div><div class="v"><code>/certified-welding-engineer</code></div></div>
+      <div class="field"><div class="k">SEO page title (= Hero H1)</div><div class="v">Certified Welding Engineer (CWEng)</div><p class="n">34 characters. CMS may append “| American Welding Society”.</p></div>
+      <div class="field"><div class="k">Primary keyword</div><div class="v">Certified Welding Engineer</div><p class="n">Use in the H1, URL, meta description and intro paragraph.</p></div>
+      <div class="field"><div class="k">Secondary keywords</div><div class="v">CWEng · Certified Welding Engineering · welding engineering certification · welding engineer certification</div></div>
+      <div class="field wide"><div class="k">Meta description · limit 155–160 characters</div>
+        <div class="v">Explore the redesigned Certified Welding Engineer (CWEng) program, aligned with AWS B5.16:2025 and ISO/IEC 17024, with two qualification levels for certification.</div>
+        <span class="warn">162 characters: 2 over the limit</span>
+        <p class="n">Option at 158: “See the redesigned Certified Welding Engineer (CWEng) program, aligned with AWS B5.16:2025 and ISO/IEC 17024, with two qualification levels for certification.”</p>
+      </div>
+      <div class="field wide"><div class="k">Primary visitor question the page must answer</div><div class="v">What’s changing with the CWEng, and what does it mean for you?</div></div>
+    </div>
+
+    <h2 class="h3" style="margin-top:48px">Brief Notes</h2>
+    <div class="meta-grid">
+      <div class="field"><div class="k">Brief guardrails</div>
+        <ul>
+          <li>Avoid “expert”, “expertise”, “competent”, “ensure higher salary” and similar claims.</li>
+          <li>Key message: redesigned program aligned with AWS B5.16:2025 and in conformance with ISO/IEC 17024.</li>
+          <li>If competitors come up (IWE, EWE, CSWIP): IWE/EWE are diplomas (completed training), not certification programs.</li>
+        </ul>
+      </div>
+      <div class="field"><div class="k">Audiences</div>
+        <ul>
+          <li><b>Primary:</b> welding, metallurgical, mechanical (welded systems) and materials engineers; Welding Engineering Technologists.</li>
+          <li><b>Secondary:</b> employers in oil &amp; gas, construction, aerospace &amp; defense, heavy manufacturing; quality/engineering managers; code bodies.</li>
+          <li><b>Global:</b> China has the most CWEngs and exams are offered in Chinese. Plan a Chinese-language version (hreflang).</li>
+        </ul>
+      </div>
+      <div class="field"><div class="k">Copy deck issues to resolve</div>
+        <ul>
+          <li>Meta description is 162 characters (limit 155–160).</li>
+          <li>Intro paragraph is 36 words (limit 50–100).</li>
+          <li>Typo in “Who” copy: “(WETs) and who are considering…”</li>
+          <li>“Who” copy leaves out Welding Engineers (brief lists them).</li>
+          <li>Final CTA note says “Purchase”. Confirm where the button goes.</li>
+          <li>Prerequisite exam name: “Welding Applied Exam” vs. “Welding Applied Sciences”.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var b=document.getElementById('toggle'),p=document.body;
+  b.addEventListener('click',function(){
+    var hidden=p.classList.toggle('hide-ann');
+    b.textContent=hidden?'Show annotations':'Hide annotations';
+    b.setAttribute('aria-pressed',String(!hidden));
+  });
+})();
+</script>
+</body>
+</html>
